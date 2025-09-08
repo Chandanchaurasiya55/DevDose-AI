@@ -18,7 +18,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false); // API loading state
   const [typingAnswer, setTypingAnswer] = useState(""); // AI type ho rahi hai
   const [isTyping, setIsTyping] = useState(false);
-  const [inputPinned, setInputPinned] = useState(false); // Input box bottom me chipka rahe
+  // const [inputPinned, setInputPinned] = useState(false); // Input box bottom me chipka rahe
   const [copiedIndex, setCopiedIndex] = useState(null); // Copy code button index
   const typingIntervalRef = useRef(null);
   const chatEndRef = useRef(null);
@@ -175,7 +175,7 @@ function App() {
 
       setTypingAnswer("");
       setIsTyping(true);
-      setInputPinned(true);
+      // setInputPinned(true);
 
       if (typingIntervalRef.current) {
         clearInterval(typingIntervalRef.current);
@@ -234,7 +234,7 @@ function App() {
   // ----------- JSX Return -----------
 
   return (
-    <div className="flex flex-col lg:grid lg:grid-cols-5 h-screen text-center overflow-hidden">
+    <div className="flex flex-col lg:grid lg:grid-cols-5 text-center overflow-hidden">
 
       {/* ---------- Left Sidebar (Desktop) ---------- */}
       <div className={`
@@ -299,7 +299,7 @@ function App() {
 
       {/* ---------- Right Chat Area ---------- */}
 
-      <div className="lg:col-span-4 flex flex-col bg-white h-screen">
+      <div className="lg:col-span-4 flex flex-col bg-white h-screen overflow-hidden">
           {/* Header */}
         <header className="relative p-2 border-b border-gray-200">
          
@@ -346,7 +346,7 @@ function App() {
         </header>
 
         {/* Chat Messages Area */}
-        <div className="flex-1 overflow-y-auto no-scrollbar m-2 sm:m-4 px-2 sm:px-7 p-6">
+        <div className="flex-1 overflow-y-auto no-scrollbar px-2 sm:px-7 p-4">
           <div className="text-white flex flex-col gap-6 sm:gap-8">
             {chatSessions[activeSession]?.map((chat, idx) => (
               <div key={idx} className="flex flex-col gap-2">
@@ -388,8 +388,8 @@ function App() {
         </div>
 
         {/* Input Box */}
-        <div className={`sticky ${inputPinned ? "bottom-7 sm:bottom-3 my-2" : "bottom-5 sm:bottom-7 my-3"} w-[96%] sm:w-2/3 bg-[#111] p-2 sm:p-3 text-white rounded-3xl flex border border-zinc-700 shadow-lg m-auto`} >
-          
+         <div className="flex-shrink-0 w-[96%] sm:w-2/3 bg-[#111] p-2 sm:p-3text-white rounded-3xl flex border border-zinc-700 shadow-lg m-auto mb-6 sm:mb-4">
+
           <textarea value={question}
             onChange={(e) => {
               setQuestion(e.target.value);
