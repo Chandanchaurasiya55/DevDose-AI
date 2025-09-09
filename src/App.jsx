@@ -305,7 +305,7 @@ function App() {
          
             {/* Hamburger Button */}
           <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="lg:hidden p-2 text-gray-800 focus:outline-none fixed top-4 left-4 z-[60] bg-[#e5e7ee] rounded-md shadow-md"
+            className="lg:hidden p-2 text-gray-800 focus:outline-none float-left mt-2 top-4 left-4 z-[60] bg-[#e5e7ee] rounded-md shadow-md"
           >
         
           {isSidebarOpen ? (
@@ -388,7 +388,7 @@ function App() {
         </div>
 
         {/* Input Box */}
-         <div className="flex-shrink-0 w-[96%] sm:w-2/3 bg-[#111] p-2 sm:p-3text-white rounded-3xl flex border border-zinc-700 shadow-lg m-auto mb-6 sm:mb-4">
+         <div className="sticky w-[96%] sm:w-2/3 bg-[#111] p-2 sm:p-3text-white rounded-3xl flex border border-zinc-700 shadow-lg m-auto mb-6 sm:mb-4">
 
           <textarea value={question}
             onChange={(e) => {
