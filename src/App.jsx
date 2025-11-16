@@ -168,7 +168,6 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-
       const resp = await respRaw.json();
       const dataString =
         resp?.candidates?.[0]?.content?.parts?.[0]?.text || "";
@@ -177,12 +176,12 @@ function App() {
       setIsTyping(true);
       // setInputPinned(true);
 
-      if (typingIntervalRef.current) {
+      if(typingIntervalRef.current) {
         clearInterval(typingIntervalRef.current);
         typingIntervalRef.current = null;
       }
 
-      if (!dataString) {
+      if(!dataString) {
         saveResponseToSession("");
         setIsTyping(false);
         setTypingAnswer("");
